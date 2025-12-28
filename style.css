@@ -76,3 +76,13 @@ footer {
   text-align: center;
   padding: 15px;
 }
+
+#pagamento {
+  background: #f4f1fb;
+  padding: 40px;
+  text-align: center;
+}
+
+#pagamento h2 {
+  color: #5e2b7a;
+}
