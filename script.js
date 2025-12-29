@@ -1,7 +1,19 @@
+let produtos = [];
 let carrinho = [];
 let produtoSelecionado = null;
 
 const lista = document.getElementById('lista-produtos');
+
+/* ===============================
+   CARREGAR PRODUTOS DO JSON
+================================ */
+fetch('produtos.json')
+  .then(response => response.json())
+  .then(data => {
+    produtos = data;
+    renderizarProdutos();
+  })
+  .catch(error => console.error('Erro ao carregar produtos:', error));
 
 /* ===============================
    RENDERIZAR PRODUTOS
@@ -155,8 +167,3 @@ window.removerItem = removerItem;
 window.finalizarWhatsApp = finalizarWhatsApp;
 window.atualizarTotal = atualizarTotal;
 window.abrirModal = abrirModal;
-
-/* ===============================
-   RENDERIZA PRODUTOS AO CARREGAR
-================================ */
-renderizarProdutos();
