@@ -116,3 +116,66 @@ footer {
   font-size: 14px;
   margin-left: 5px;
 }
+/* FUNDO DO MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 2000;
+}
+
+/* CONTEÚDO DO MODAL */
+.modal-conteudo {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+
+  width: 90%;
+  max-width: 320px;
+
+  text-align: center;
+}
+
+/* TÍTULO DO MODAL */
+.modal-conteudo h3 {
+  margin-bottom: 15px;
+  color: #5e2b7a;
+}
+
+/* SELECTS */
+.modal-conteudo select {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+/* BOTÕES */
+.modal-conteudo button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-conteudo button:first-of-type {
+  background: #7b5cff;
+  color: white;
+}
+
+.modal-conteudo button:last-of-type {
+  background: #ddd;
+}
