@@ -122,5 +122,17 @@ function finalizarWhatsApp() {
     "_blank"
   );
 }
-  
+ function atualizarTotal() {
+  let total = carrinho.reduce((soma, item) => soma + item.valor, 0);
+
+  const entregaSelecionada = document.querySelector(
+    'input[name="recebimento"]:checked'
+  ).value;
+
+  if (entregaSelecionada === "entrega") {
+    total += 10;
+  }
+
+  document.getElementById("total-final").innerText = total.toFixed(2);
+} 
   
