@@ -3,34 +3,22 @@ document.addEventListener("DOMContentLoaded", function () {
   let produtoSelecionado = null;
 
   /* ===============================
-     CARREGAR PRODUTOS
+     LISTA DE PRODUTOS
   ================================= */
-  // Substitua o fetch por um array direto se produtos.json não estiver funcionando
   const produtos = [
-    {
-      nome: "Vestido Luna",
-      preco: "R$ 99,90",
-      cores: "Lilás, Branco",
-      tamanhos: "P, M, G",
-      imagem: "imagens/vestido-luna.jpg"
-    },
-    {
-      nome: "Conjunto Íris",
-      preco: "R$ 79,90",
-      cores: "Rosa, Preto",
-      tamanhos: "P, M, G",
-      imagem: "imagens/conjunto-iris.jpg"
-    }
-    // adicione mais produtos aqui
+    { nome: "Vestido Luna", preco: "R$ 99,90", cores: "Lilás, Branco", tamanhos: "P, M, G", imagem: "imagens/vestido-luna.jpg" },
+    { nome: "Conjunto Íris", preco: "R$ 79,90", cores: "Rosa, Preto", tamanhos: "P, M, G", imagem: "imagens/conjunto-iris.jpg" },
+    { nome: "Vestido Sol", preco: "R$ 89,90", cores: "Amarelo, Branco", tamanhos: "P, M, G", imagem: "imagens/vestido-sol.jpg" },
+    { nome: "Saia Lua", preco: "R$ 69,90", cores: "Preto, Vermelho", tamanhos: "P, M, G", imagem: "imagens/saia-lua.jpg" }
   ];
 
   const lista = document.getElementById('lista-produtos');
   lista.innerHTML = '';
 
-  produtos.forEach(p => {
+  produtos.forEach((p, index) => {
     lista.innerHTML += `
       <div class="produto">
-        <img src="${p.imagem}" alt="${p.nome}" onclick='abrirModal(${JSON.stringify(p)})'>
+        <img src="${p.imagem}" alt="${p.nome}" onclick='abrirModalIndex(${index})'>
         <h3>${p.nome}</h3>
         <p>${p.preco}</p>
         <p><strong>Cores:</strong> ${p.cores}</p>
@@ -40,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* ===============================
-     MODAL DO PRODUTO
+     FUNÇÃO DO MODAL
   ================================= */
   function abrirModal(produto) {
     produtoSelecionado = produto;
@@ -59,6 +47,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("modal").style.display = "none";
   }
 
+  // Abrir modal usando índice do produto
+  window.produtos = produtos;
+  window.abrirModalIndex = function(index) {
+    abrirModal(window.produtos[index]);
+  }
+
   /* ===============================
      ADICIONAR AO CARRINHO
   ================================= */
@@ -67,9 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nome: produtoSelecionado.nome,
       preco: produtoSelecionado.preco,
       valor: parseFloat(
-        produtoSelecionado.preco
-          .replace("R$", "")
-          .replace(",", ".")
+        produtoSelecionado.preco.replace("R$", "").replace(",", ".")
       ),
       cor: document.getElementById("cor").value,
       tamanho: document.getElementById("tamanho").value
@@ -177,5 +169,16 @@ document.addEventListener("DOMContentLoaded", function () {
       "https://wa.me/5591985144347?text=" + mensagem,
       "_blank"
     );
-  };
+  }
+
+  /* ===============================
+     EXPOR FUNÇÕES PARA O HTML
+  ================================= */
+  window.adicionarCarrinho = adicionarCarrinho;
+  window.abrirCarrinho = abrirCarrinho;
+  window.fecharModal = fecharModal;
+  window.fecharCarrinho = fecharCarrinho;
+  window.removerItem = removerItem;
+  window.finalizarWhatsApp = finalizarWhatsApp;
+  window.atualizarTotal = atualizarTotal;
 });
