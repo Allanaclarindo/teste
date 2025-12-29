@@ -15,8 +15,8 @@ fetch('produtos.json')
 
     produtos.forEach(p => {
       lista.innerHTML += `
-        <div class="produto" onclick='abrirModal(${JSON.stringify(p)})'>
-          <img src="${p.imagem}" alt="${p.nome}">
+        <div class="produto">
+          <img src="${p.imagem}" alt="${p.nome}" onclick='abrirModal(${JSON.stringify(p)})'>
           <h3>${p.nome}</h3>
           <p>${p.preco}</p>
           <p><strong>Cores:</strong> ${p.cores}</p>
