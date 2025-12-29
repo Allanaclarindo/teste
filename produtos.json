@@ -2,14 +2,14 @@
   {
     "nome": "vestido Luna",
     "preco": "R$ 99,90",
-    "imagem": "imagem": "imagem": "imagens/vestido-luna.jpg"
+    "imagem": "imagens/vestido-luna.jpg"
     "cores": "Lilás, Branco",
     "tamanhos": "P, M, G"
   },
   {
     "nome": "Conjunto Íris",
     "preco": "R$ 79,90",
-    "imagem": "imagem": "imagens/conjunto-iris.jpg"
+    "imagem": "imagens/conjunto-iris.jpg"
     "cores": "Roxo",
     "tamanhos": "M, G"
   },
