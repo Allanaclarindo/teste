@@ -2,6 +2,7 @@
   {
     "nome": "vestido Luna",
     "preco": "R$ 99,90",
+    "valor": 99.90,
     "imagem": "imagens/vestido-luna.jpg",
     "cores": "Lilás, Branco",
     "tamanhos": "P, M, G"
@@ -9,6 +10,7 @@
   {
     "nome": "Conjunto Iris",
     "preco": "R$ 79,90",
+    "valor": 79,90,
     "imagem": "imagens/conjunto-iris.jpg",
     "cores": "Roxo",
     "tamanhos": "M, G"
@@ -16,6 +18,7 @@
   {
     "nome": "Conjunto Alfaiataria",
     "preco": "R$ 79,90",
+    "valor": 79,90,
     "imagem": "imagens/conjunto-alfaiataria.jpg",
     "cores": "Lilás, Branco",
     "tamanhos": "P, M, G"
@@ -23,6 +26,7 @@
   {
     "nome": "Vestido Alfaiataria",
     "preco": "R$ 79,90",
+    "valor": 79,90,
     "imagem": "imagens/vestido-alfaiataria.jpg",
     "cores": "Lilás, Branco",
     "tamanhos": "P, M, G"
