@@ -65,21 +65,32 @@ function abrirCarrinho() {
   const lista = document.getElementById("lista-carrinho");
   lista.innerHTML = "";
 
+  let total = 0;
+
   if (carrinho.length === 0) {
     lista.innerHTML = "<p>Seu carrinho está vazio</p>";
   } else {
     carrinho.forEach((item, index) => {
+      total += item.valor;
+
       lista.innerHTML += `
         <p>
           <strong>${item.nome}</strong><br>
-          Cor: ${item.cor} | Tamanho: ${item.tamanho}
-          <br>
+          Cor: ${item.cor} | Tamanho: ${item.tamanho}<br>
+          Preço: ${item.preco}<br>
           <button onclick="removerItem(${index})">❌ Remover</button>
         </p>
         <hr>
       `;
     });
+
+    lista.innerHTML += `
+      <p><strong>Total:</strong> R$ ${total.toFixed(2)}</p>
+    `;
   }
+
+  document.getElementById("modal-carrinho").style.display = "flex";
+}
 
   document.getElementById("modal-carrinho").style.display = "flex";
 }
