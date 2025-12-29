@@ -1,4 +1,4 @@
-document.addEventListener(DOMConterLoaded", function () {
+ document.addEventListener("DOMContentLoaded", function () {
 let carrinho = [];
 let produtoSelecionado = null;
 
@@ -162,4 +162,5 @@ function finalizarWhatsApp() {
     "https://wa.me/5591985144347?text=" + mensagem,
     "_blank"
   );
-      }
+      };
+ });
