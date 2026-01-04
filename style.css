@@ -200,3 +200,13 @@ footer {
   max-width: 320px;
   text-align: center;
 }
+.imagens-produto{
+  display: flex;
+  gap: 8px;
+}
+
+.imagens-produto imag{
+  width: 100%;
+  max-width: 150px;
+  border-radius: 8px;
+}
