@@ -22,30 +22,38 @@ fetch('produtos.json')
 ================================ */
 function renderizarProdutos() {
   lista.innerHTML = '';
+
   produtos.forEach((p, index) => {
-  let imagensHTML = '';
 
-if (p.imagens && p.imagens.length > 1) {
-  imagensHTML = `
-    <img src="${p.imagens[0]}" alt="${p.nome}" onclick="verImagem('${p.imagens[0]}')">
-    <img src="${p.imagens[1]}" alt="${p.nome}" onclick="verImagem('${p.imagens[1]}')">
-  `;
-} else {
-  const img = p.imagem || p.imagens?.[0];
-  imagensHTML = `
-    <img src="${img}" alt="${p.nome}" onclick="verImagem('${img}')">
-  `;
+    let imagensHTML = '';
+
+    // Se tiver array de imagens
+    if (Array.isArray(p.imagens)) {
+      p.imagens.forEach(img => {
+        imagensHTML += `
+          <img src="${img}" alt="${p.nome}" onclick="verImagem('${img}')">
+        `;
+      });
+    }
+    // Se tiver só uma imagem
+    else if (p.imagem) {
+      imagensHTML = `
+        <img src="${p.imagem}" alt="${p.nome}" onclick="verImagem('${p.imagem}')">
+      `;
+    }
+
+    lista.innerHTML += `
+      <div class="produto">
+        ${imagensHTML}
+        <h3>${p.nome}</h3>
+        <p>${p.preco}</p>
+        <p><strong>Cores:</strong> ${p.cores}</p>
+        <p><strong>Tamanhos:</strong> ${p.tamanhos}</p>
+        <button onclick="abrirModal(${index})">Comprar</button>
+      </div>
+    `;
+  });
 }
-
-lista.innerHTML += `
-  <div class="produto">
-    ${imagensHTML}
-    <h3>${p.nome}</h3>
-    <p>${p.preco}</p>
-    <p><strong>Cores:</strong> ${p.cores}</p>
-    <p><strong>Tamanhos:</strong> ${p.tamanhos}</p>
-    <button onclick="abrirModal(${index})">Comprar</button>
-  </div>
 `;
     `;
   });
