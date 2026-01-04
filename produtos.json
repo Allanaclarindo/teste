@@ -3,7 +3,10 @@
     "nome": "Vestido Luna",
     "preco": "R$ 99,90",
     "valor": 99.90,
-    "imagem": "imagens/vestido-luna.jpg",
+    "imagem": [
+      "imagens/vestido-luna.jpg",
+     "imagem/vestido-luna-2.jpg"
+    ],
     "cores": "Lilás, Branco",
     "tamanhos": "P, M, G"
   },
